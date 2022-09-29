@@ -3,7 +3,6 @@ import tensorflow as tf
 
 # Helper libraries
 import numpy as np
-import matplotlib.pyplot as plt
 import gzip
 
 def load_data():
@@ -74,18 +73,7 @@ def test_model(model, dataset, labels):
 def main():
     (train_images, train_labels), (test_images, test_labels) = load_data()
 
-    # display first 100 images
-    plt.figure(figsize=(10,10))
-    for i in range(25):
-        plt.subplot(5,5,i+1)
-        plt.xticks([])
-        plt.yticks([])
-        plt.grid(False)
-        plt.imshow(train_images[i], cmap=plt.cm.binary)
-        plt.xlabel(train_labels[i])
-    plt.show()
-
-    # normalize images colour to (0..1)
+    # normalize images colour to (0-1)
     train_images = train_images / 255.0
     test_images = test_images / 255.0
 
